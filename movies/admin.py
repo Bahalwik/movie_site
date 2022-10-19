@@ -24,7 +24,7 @@ class MovieShotsInline(admin.TabularInline):
     def get_image(self, obj):
         return mark_safe(f'<img src={obj.image.url} width="90" height="120">')
 
-    get_image.short_description = 'Кадры'
+    get_image.short_description = 'Shots'
 
 
 @admin.register(Film)
@@ -42,7 +42,7 @@ class FilmAdmin(admin.ModelAdmin):
     def get_image(self, obj):
         return mark_safe(f'<img src={obj.poster.url} width="50" height="60">')
 
-    get_image.short_description = 'Постер'
+    get_image.short_description = 'Poster'
 
 
 @admin.register(Reviews)
@@ -64,7 +64,7 @@ class ActorAdmin(admin.ModelAdmin):
     def get_image(self, obj):
         return mark_safe(f'<img src={obj.image.url} width="50" height="60">')
 
-    get_image.short_description = 'Изображение'
+    get_image.short_description = 'Image'
 
 
 @admin.register(MovieShots)

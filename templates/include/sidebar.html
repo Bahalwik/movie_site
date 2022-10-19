@@ -1,7 +1,7 @@
 {% load Film_tag %}
 <div class="side-bar col-lg-3">
     <div class="search-bar w3layouts-newsletter">
-        <h3 class="sear-head editContent" >Поиск фильма</h3>
+        <h3 class="sear-head editContent" >Movie Search</h3>
         <form action="#" method="post" class="d-flex editContent" >
             <input type="search" placeholder="Введите название..." name="search" class="form-control" required="">
             <button class="btn1 btn" ><span class="fa fa-search" aria-hidden="true" ></span></button>
@@ -12,7 +12,7 @@
 
 <form action="{% url 'filter' %}" method="get">
     <div class="left-side my-4">
-        <h3 class="sear-head editContent" >Жанры</h3>
+        <h3 class="sear-head editContent" >Genre</h3>
         <ul class="w3layouts-box-list">
             {% for genre in view.get_genres %}
             <li class="editContent" >
@@ -24,7 +24,7 @@
     </div>
 
     <div class="left-side">
-        <h3 class="sear-head editContent" >Год</h3>
+        <h3 class="sear-head editContent" >Year</h3>
         <ul class="w3layouts-box-list">
             {% for film in view.get_years %}
             <li class="editContent" >
@@ -34,7 +34,7 @@
             {% endfor %}
         </ul>
     </div>
-<button type="submit">Поиск</button>
+<button type="submit">Search</button>
 </form>
 
 
@@ -42,7 +42,7 @@
 
     <!-- reviews -->
     <div class="customer-rev left-side my-4">
-        <h3 class="sear-head editContent" >Рейтинг</h3>
+        <h3 class="sear-head editContent" >Rating</h3>
         <ul class="w3layouts-box-list">
             <li>
                 <a href="#">

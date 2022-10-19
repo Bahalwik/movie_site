@@ -8,7 +8,7 @@ from .forms import ReviewForm, RatingForm
 
 
 class GenreYear:
-    """Жанры и год для поиска"""
+    """Genres and year to search for"""
     def get_genres(self):
         return Genre.objects.all()
 
@@ -17,13 +17,13 @@ class GenreYear:
 
 
 class FilmsView(GenreYear, ListView):
-    """Список Фильмов"""
+    """List of Films"""
     model = Film
     queryset = Film.objects.filter(draft=False)
 
 
 class MovieDetailView(GenreYear, DetailView):
-    """Описание фильма"""
+    """Description of the film"""
     model = Film
     slug_field = "url"
     template_name = "movies/movie_detail.html"
@@ -35,7 +35,7 @@ class MovieDetailView(GenreYear, DetailView):
 
 
 class AddReview(View):
-    """Отзывы"""
+    """Review"""
     def post(self, request, pk):
         form = ReviewForm(request.POST)
         film = Film.objects.get(id=pk)
@@ -49,14 +49,14 @@ class AddReview(View):
 
 
 class ActorView(GenreYear, DetailView):
-    """Информация об Актёре"""
+    """Information about the Actor"""
     model = Actor
     template_name = 'movies/actor.html'
     slug_field = "name"
 
 
 class FilterMoviesView(GenreYear, ListView):
-    """Фильтр"""
+    """Movie Filter"""
     def get_queryset(self):
         queryset = Film.objects.filter(
             Q(year__in=self.request.GET.getlist("year"))|
@@ -67,7 +67,7 @@ class FilterMoviesView(GenreYear, ListView):
 
 
 class AddStarRating(View):
-    """Добавление рейтинга"""
+    """Add Star Rating"""
     def get_client_ip(self, request):
         x_forwarded_for = request.META.get('HTTP_X_FORWARDED_FOR')
         if x_forwarded_for:
